@@ -1,60 +1,52 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const App = () => {
-  const [employees, setEmployees] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+const PaginationApp = () => {
+  const [employees, setEmployees] = useState([]); 
+  const [currentPage, setCurrentPage] = useState(1); 
+  const rowsPerPage = 10; 
+
+  const fetchEmployees = async () => {
+    try {
+      const response = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
+      if (response.ok) {
+        const data = await response.json(); 
+        setEmployees(data); 
+      } else {
+        alert("Failed to fetch data"); 
+      }
+    } catch (error) {
+      alert("Failed to fetch data"); 
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setEmployees(data);
-      } catch (error) {
-        alert("Failed to fetch data");
-      }
-    };
-
-    fetchData();
+    fetchEmployees();
   }, []);
 
-  // Calculate the index of the first item of the current page
-  const indexOfLastEmployee = currentPage * itemsPerPage;
-  const indexOfFirstEmployee = indexOfLastEmployee - itemsPerPage;
-  const currentEmployees = employees.slice(
-    indexOfFirstEmployee,
-    indexOfLastEmployee
-  );
+  
+  const indexOfLastEmployee = currentPage * rowsPerPage; 
+  const indexOfFirstEmployee = indexOfLastEmployee - rowsPerPage; 
+  const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee); 
 
-  // Handle page change
   const nextPage = () => {
-    if (currentPage < Math.ceil(employees.length / itemsPerPage)) {
-      console.log("Navigating to next page");
-      setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(employees.length / rowsPerPage)) {
+      setCurrentPage(currentPage + 1); 
     }
   };
-  
-  const previousPage = () => {
+
+  const prevPage = () => {
     if (currentPage > 1) {
-      console.log("Navigating to previous page");
-      setCurrentPage(currentPage - 1);
+      setCurrentPage(currentPage - 1); 
     }
   };
-  
 
   return (
-    <div>
+    <div className="container-div">
       <h1>Employee Data Table</h1>
-      <table>
-        <thead>
+
+      <table className="rows" border="1" cellPadding="10" cellSpacing="0">
+        <thead style={{color:"antiquewhite",backgroundColor:"green"}}>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -63,8 +55,8 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {currentEmployees.map((employee, index) => (
-            <tr key={index}>
+          {currentEmployees.map((employee) => (
+            <tr key={employee.id}>
               <td>{employee.id}</td>
               <td>{employee.name}</td>
               <td>{employee.email}</td>
@@ -73,20 +65,21 @@ const App = () => {
           ))}
         </tbody>
       </table>
-      <div className="buttoncontainer">
-        <button onClick={previousPage} disabled={currentPage === 1}>
-          Previous
+
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button className="button" onClick={prevPage} disabled={currentPage === 1}>
+            Previous
         </button>
-        <button> {currentPage} </button>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === Math.ceil(employees.length / itemsPerPage)}
-        >
-          Next
+        <span style={{ margin: "0 10px", width: "20px", height: "40px" }} id="page-number">
+            {currentPage}
+        </span>
+        <button className="button" onClick={nextPage} disabled={currentPage === Math.ceil(employees.length / rowsPerPage)}>
+            Next
         </button>
       </div>
+
     </div>
   );
 };
 
-export default App;
+export default PaginationApp;
