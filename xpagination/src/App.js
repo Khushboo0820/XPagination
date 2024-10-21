@@ -31,13 +31,15 @@ const PaginationApp = () => {
 
   const nextPage = () => {
     if (currentPage < Math.ceil(employees.length / rowsPerPage)) {
-      setCurrentPage(currentPage +  1); 
+      //setCurrentPage(currentPage +  1); 
+      setCurrentPage(prevPage => prevPage + 1);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1); 
+      //setCurrentPage(currentPage - 1); 
+      setCurrentPage(prevPage => prevPage - 1);
     }
   };
 
