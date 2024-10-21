@@ -31,7 +31,7 @@ const PaginationApp = () => {
 
   const nextPage = () => {
     if (currentPage < Math.ceil(employees.length / rowsPerPage)) {
-      setCurrentPage(currentPage + 1); 
+      setCurrentPage(currentPage +  1); 
     }
   };
 
@@ -73,9 +73,10 @@ const PaginationApp = () => {
         <span style={{ margin: "0 10px", width: "20px", height: "40px" }} id="page-number">
             {currentPage}
         </span>
-        <button className="button" onClick={nextPage} disabled={currentPage === Math.ceil(employees.length / rowsPerPage)}>
+        <button className="button" onClick={nextPage}>
             Next
         </button>
+        
       </div>
 
     </div>
