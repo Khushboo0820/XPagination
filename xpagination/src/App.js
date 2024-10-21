@@ -37,15 +37,18 @@ const App = () => {
   // Handle page change
   const nextPage = () => {
     if (currentPage < Math.ceil(employees.length / itemsPerPage)) {
+      console.log("Navigating to next page");
       setCurrentPage(currentPage + 1);
     }
   };
-
+  
   const previousPage = () => {
     if (currentPage > 1) {
+      console.log("Navigating to previous page");
       setCurrentPage(currentPage - 1);
     }
   };
+  
 
   return (
     <div>
