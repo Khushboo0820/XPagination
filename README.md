@@ -3,6 +3,7 @@ Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
 
 <b>Features:</b><br />
+<hr>
 
 1.Data Fetching:<br />
 &nbsp;&nbsp;• Employee data is fetched from a remote API and displayed in a paginated table.<br />
@@ -30,20 +31,24 @@ numbering continues across pages.<br />
 &nbsp;&nbsp;•An error handling mechanism is in place that alerts the user if the data fails to load.<br />
 
 3.Pagination Logic:<br />
-&nbsp;&nbsp;•currentData calculates which employees to display on the current page.<br />
+&nbsp;&nbsp;&nbsp;•currentData calculates which employees to display on the current page.<br />
 &nbsp;&nbsp;•The total number of pages is calculated by dividing the total data length by rows per page.<br />
 &nbsp;&nbsp;•The "Next" and "Previous" buttons adjust the current page while ensuring it stays within valid limits.<br />
 
 4. Dynamic Table Row Numbering:<br />
 &nbsp;•The first column displays the row number, which dynamically adjusts based on the current page.<br />
 
+<hr>
 <b>Usage:</b><br />
 
 1.Click "Next" to move to the next page of the employee list.<br />
 2.Click "Previous" to move back to the previous page.<br />
 3.The page number is displayed between the pagination buttons.<br />
 
+<hr>
+
 <b>Installation:</b><br />
+
 1.Clone the repository.<br />
 2.Install dependencies using npm install.<br />
 3.Start the application with npm start.<br />
