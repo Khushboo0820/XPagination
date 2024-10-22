@@ -3,7 +3,7 @@ import "./App.css";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const rowsPerPage = 10;
 
   useEffect(() => {
