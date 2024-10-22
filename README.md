@@ -1,5 +1,5 @@
-# XPagination<br> 
-Employee Data Table - React Application with Pagination
+# XPagination <br> 
+Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
 
 Features:
