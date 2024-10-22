@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const PaginationApp = () => {
-  const [employees, setEmployees] = useState([]); 
-  const [currentPage, setCurrentPage] = useState(1); 
-  const rowsPerPage = 10; 
+  const [employees, setEmployees] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10;
 
   const fetchEmployees = async () => {
     try {
-      const response = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
+      const response = await fetch(
+        "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
+      );
       if (response.ok) {
-        const data = await response.json(); 
-        setEmployees(data); 
+        const data = await response.json();
+        setEmployees(data);
       } else {
-        alert("Failed to fetch data"); 
+        alert("Failed to fetch data");
       }
     } catch (error) {
-      alert("Failed to fetch data"); 
+      alert("Failed to fetch data");
     }
   };
 
@@ -24,22 +26,21 @@ const PaginationApp = () => {
     fetchEmployees();
   }, []);
 
-  
-  const indexOfLastEmployee = currentPage * rowsPerPage; 
-  const indexOfFirstEmployee = indexOfLastEmployee - rowsPerPage; 
-  const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee); 
+  const indexOfLastEmployee = currentPage * rowsPerPage;
+  const indexOfFirstEmployee = indexOfLastEmployee - rowsPerPage;
+  const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee);
+
+  const totalPages = Math.ceil(employees.length / rowsPerPage);
 
   const nextPage = () => {
-    if (currentPage < Math.ceil(employees.length / rowsPerPage)) {
-      //setCurrentPage(currentPage +  1); 
-      setCurrentPage(prevPage => prevPage + 1);
+    if (currentPage < totalPages) {
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
-      //setCurrentPage(currentPage - 1); 
-      setCurrentPage(prevPage => prevPage - 1);
+      setCurrentPage((prevPage) => prevPage - 1);
     }
   };
 
@@ -48,7 +49,7 @@ const PaginationApp = () => {
       <h1>Employee Data Table</h1>
 
       <table className="rows" border="1" cellPadding="10" cellSpacing="0">
-        <thead style={{color:"antiquewhite",backgroundColor:"green"}}>
+        <thead style={{ color: "antiquewhite", backgroundColor: "green" }}>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -68,19 +69,22 @@ const PaginationApp = () => {
         </tbody>
       </table>
 
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+      >
         <button className="button" onClick={prevPage} disabled={currentPage === 1}>
-            Previous
+          Previous
         </button>
-        <span style={{ margin: "0 10px", width: "20px", height: "40px" }} id="page-number">
-            {currentPage}
+        <span
+          style={{ margin: "0 10px", width: "20px", height: "40px" }}
+          id="page-number"
+        >
+          {currentPage}
         </span>
-        <button className="button" onClick={nextPage}>
-            Next
+        <button className="button" onClick={nextPage} disabled={currentPage === totalPages}>
+          Next
         </button>
-        
       </div>
-
     </div>
   );
 };
