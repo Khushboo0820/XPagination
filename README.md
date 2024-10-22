@@ -1,9 +1,8 @@
 # XPagination <br> 
 Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
-
-<b>Features:</b><br />
 <hr>
+<b>Features:</b><br />
 
 1.Data Fetching:<br />
 &nbsp;&nbsp;• Employee data is fetched from a remote API and displayed in a paginated table.<br />
@@ -17,7 +16,7 @@ This React application displays employee data in a table and includes pagination
 3.Dynamic Row Numbering:<br />
 &nbsp;•Row numbers are displayed dynamically based on the current page, so the 
 numbering continues across pages.<br />
-
+<hr>
 <b>Code Overview:</b><br />
 
 1.State Management:<br />
@@ -37,14 +36,13 @@ numbering continues across pages.<br />
 
 4. Dynamic Table Row Numbering:<br />
 &nbsp;•The first column displays the row number, which dynamically adjusts based on the current page.<br />
-
 <hr>
+
 <b>Usage:</b><br />
 
 1.Click "Next" to move to the next page of the employee list.<br />
 2.Click "Previous" to move back to the previous page.<br />
 3.The page number is displayed between the pagination buttons.<br />
-
 <hr>
 
 <b>Installation:</b><br />
