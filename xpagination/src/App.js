@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Pagination.css';
+import './App.css';
 
 function Pagination(){
       const [data, setData] = useState([]);
