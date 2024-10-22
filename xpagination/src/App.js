@@ -34,6 +34,7 @@ const App = () => {
   const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prevPage) => prevPage + 1);
+      console.log("next button click");
     }
   };
 
@@ -74,12 +75,7 @@ const App = () => {
         <button className="button" onClick={prevPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <span
-          style={{ margin: "0 10px", width: "20px", height: "40px" }}
-          id="page-number"
-        >
-          {currentPage}
-        </span>
+       <button>{currentPage}</button>
         <button className="button" onClick={nextPage} disabled={currentPage === totalPages}>
           Next
         </button>
