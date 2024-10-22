@@ -2,21 +2,21 @@
 Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
 
-Features:
-1.Data Fetching:
-    • Employee data is fetched from a remote API and displayed in a paginated table.
-    • If data fetching fails, an alert is shown with an error message.
+Features:<br />
+1.Data Fetching:<br />
+    • Employee data is fetched from a remote API and displayed in a paginated table.<br />
+    • If data fetching fails, an alert is shown with an error message.<br />
     
-2.Pagination:
-    •The table is paginated with 10 rows displayed per page.
-    •Users can navigate between pages using "Previous" and "Next" buttons.
-    •The current page number is displayed between the pagination buttons.
+2.Pagination:<br />
+    •The table is paginated with 10 rows displayed per page.<br />
+    •Users can navigate between pages using "Previous" and "Next" buttons.<br />
+    •The current page number is displayed between the pagination buttons.<br />
 
-3.Dynamic Row Numbering:
+3.Dynamic Row Numbering:<br />
    •Row numbers are displayed dynamically based on the current page, so the 
-numbering continues across pages.
+numbering continues across pages.<br />
 
-Code Overview:
+Code Overview:<br />
 
 1.State Management:
    •data: Stores the fetched employee data.
