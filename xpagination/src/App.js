@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function Pagination(){
+function App(){
       const [data, setData] = useState([]);
       const [currentPage, setCurrentPage] = useState(1);
       const rowsPerPage = 10;
@@ -79,4 +79,4 @@ function Pagination(){
       );
 }
 
-export default Pagination;
+export default App;
