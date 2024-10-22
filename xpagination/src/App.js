@@ -72,11 +72,11 @@ const App = () => {
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
-        <button className="button" onClick={prevPage} disabled={currentPage === 1}>
+        <button className="button" onClick={prevPage}>
           Previous
         </button>
        <button>{currentPage}</button>
-        <button className="button" onClick={nextPage} disabled={currentPage === totalPages}>
+        <button className="button" onClick={nextPage}>
           Next
         </button>
       </div>
