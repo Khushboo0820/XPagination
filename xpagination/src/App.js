@@ -3,7 +3,7 @@ import "./App.css";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const App = () => {
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
       >
-        <button className="button" onClick={prevPage} disabled={currentPage === 1}>
+        <button className="button" onClick={prevPage}>
           Previous
         </button>
        <button>{currentPage}</button>
