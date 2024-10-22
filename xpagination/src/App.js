@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const PaginationApp = () => {
+const App = () => {
   const [employees, setEmployees] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
-  const fetchEmployees = async () => {
-    try {
-      const response = await fetch(
-        "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
-      );
-      if (response.ok) {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         const data = await response.json();
         setEmployees(data);
-      } else {
+      } catch (error) {
         alert("Failed to fetch data");
       }
-    } catch (error) {
-      alert("Failed to fetch data");
-    }
-  };
+    };
 
-  useEffect(() => {
-    fetchEmployees();
+    fetchData();
   }, []);
 
   const indexOfLastEmployee = currentPage * rowsPerPage;
@@ -89,4 +88,4 @@ const PaginationApp = () => {
   );
 };
 
-export default PaginationApp;
+export default App;
