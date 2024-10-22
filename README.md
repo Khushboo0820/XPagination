@@ -3,6 +3,7 @@ Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
 <hr>
 <b>Features:</b>
+
 <br />
 
 1.Data Fetching:<br />
@@ -19,6 +20,7 @@ This React application displays employee data in a table and includes pagination
 numbering continues across pages.<br />
 <hr>
 <b>Code Overview:</b>
+
 <br />
 1.State Management:<br />
 &nbsp;&nbsp;•data: Stores the fetched employee data.<br />
