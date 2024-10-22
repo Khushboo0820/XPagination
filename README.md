@@ -2,47 +2,49 @@
 Employee Data Table - React Application with Pagination<br />
 This React application displays employee data in a table and includes pagination functionality to navigate through the dataset.
 
-Features:<br />
+<b>Features:</b><br />
+
 1.Data Fetching:<br />
-    • Employee data is fetched from a remote API and displayed in a paginated table.<br />
-    • If data fetching fails, an alert is shown with an error message.<br />
+&nbsp;• Employee data is fetched from a remote API and displayed in a paginated table.<br />
+&nbsp;• If data fetching fails, an alert is shown with an error message.<br />
     
 2.Pagination:<br />
-    •The table is paginated with 10 rows displayed per page.<br />
-    •Users can navigate between pages using "Previous" and "Next" buttons.<br />
-    •The current page number is displayed between the pagination buttons.<br />
+&nbsp;•The table is paginated with 10 rows displayed per page.<br />
+&nbsp;•Users can navigate between pages using "Previous" and "Next" buttons.<br />
+&nbsp;•The current page number is displayed between the pagination buttons.<br />
 
 3.Dynamic Row Numbering:<br />
-   •Row numbers are displayed dynamically based on the current page, so the 
+&nbsp;•Row numbers are displayed dynamically based on the current page, so the 
 numbering continues across pages.<br />
 
-Code Overview:<br />
+<b>Code Overview:</b><br />
 
-1.State Management:
-   •data: Stores the fetched employee data.
-   •currentPage: Tracks the current page number.
-   •rowsPerPage: Defines the number of rows to show per page (10 in this case).
-   •error: Stores any errors that occur during the API request.
+1.State Management:<br />
+&nbsp;•data: Stores the fetched employee data.<br />
+&nbsp;•currentPage: Tracks the current page number.<br />
+&nbsp;•rowsPerPage: Defines the number of rows to show per page (10 in this case).<br />
+&nbsp;•error: Stores any errors that occur during the API request.<br />
 
-2.API Data Fetching:
-   •Uses the fetch function inside a useEffect to load employee data from a remote URL.
-   •An error handling mechanism is in place that alerts the user if the data fails to load.
+2.API Data Fetching:<br />
+&nbsp;•Uses the fetch function inside a useEffect to load employee data from a remote URL.<br />
+&nbsp;•An error handling mechanism is in place that alerts the user if the data fails to load.<br />
 
-3.Pagination Logic:
-   •currentData calculates which employees to display on the current page.
-   •The total number of pages is calculated by dividing the total data length by rows per page.
-   •The "Next" and "Previous" buttons adjust the current page while ensuring it stays within valid limits.
+3.Pagination Logic:<br />
+&nbsp;•currentData calculates which employees to display on the current page.<br />
+&nbsp;•The total number of pages is calculated by dividing the total data length by rows per page.<br />
+&nbsp;•The "Next" and "Previous" buttons adjust the current page while ensuring it stays within valid limits.<br />
 
-4. Dynamic Table Row Numbering:
-   •The first column displays the row number, which dynamically adjusts based on the current page.
+4. Dynamic Table Row Numbering:<br />
+&nbsp;•The first column displays the row number, which dynamically adjusts based on the current page.<br />
 
-Usage:
-1.Click "Next" to move to the next page of the employee list.
-2.Click "Previous" to move back to the previous page.
-3.The page number is displayed between the pagination buttons.
+<b>Usage:</b><br />
 
-Installation:
-1.Clone the repository.
-2.Install dependencies using npm install.
-3.Start the application with npm start.
-4.The app will be served at http://localhost:3000.
+1.Click "Next" to move to the next page of the employee list.<br />
+2.Click "Previous" to move back to the previous page.<br />
+3.The page number is displayed between the pagination buttons.<br />
+
+<b>Installation:</b><br />
+1.Clone the repository.<br />
+2.Install dependencies using npm install.<br />
+3.Start the application with npm start.<br />
+4.The app will be served at http://localhost:3000.<br />
