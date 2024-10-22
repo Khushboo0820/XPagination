@@ -27,7 +27,7 @@ numbering continues across pages.<br />
 &nbsp;&nbsp;•currentPage: Tracks the current page number.<br />
 &nbsp;&nbsp;•rowsPerPage: Defines the number of rows to show per page (10 in this case).<br />
 &nbsp;&nbsp;•error: Stores any errors that occur during the API request.<br />
-
+<br><br><br>
 2.API Data Fetching:<br />
 &nbsp;&nbsp;•Uses the fetch function inside a useEffect to load employee data from a remote URL.<br />
 &nbsp;&nbsp;•An error handling mechanism is in place that alerts the user if the data fails to load.<br />
